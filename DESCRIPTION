@@ -1,0 +1,10 @@
+Package: biodiverse
+Type: Package
+Title: Estimate and compare biodiversity
+Version: 0.1.0
+Author: Jason Bintz
+Maintainer: Jason Bintz <jason.bintz@houghton.edu>
+Description: Functions for estimating and comparing biological diversity.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
