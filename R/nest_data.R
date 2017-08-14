@@ -1,6 +1,6 @@
-#' nest_data
+#' Make a nested biodiversity data frame.
 #'
-#' nest_data returns a nested data frame with one row per assemblage
+#' \code{nest_data} returns a nested data frame with one row per assemblage
 #'
 #' @param x a list of assemblage frequency vectors
 #'
