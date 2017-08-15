@@ -22,4 +22,7 @@ nest_data(l)
 # if assemblage names are omitted, they will be assigned
 l <- list(c(10,2,1,1), c(7,2,1))
 nest_data(l)
+# if assemblage names are incomplete, they will (all) be reassigned
+l <- list(A = c(10,2,1,1), c(7,2,1))
+nest_data(l)
 }
