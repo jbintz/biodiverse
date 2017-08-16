@@ -1,4 +1,4 @@
-get_qD <- function(q, x, n) {
+get_qD_err <- function(q, x, n) {
   size <- floor(seq(1, n, length.out = min(n, 20)))
   if (q == 0) qD <- get_richness(x, n, size)
   if (q == 1) qD <- get_shannon(x, n, size)
@@ -59,7 +59,7 @@ get_H_inf <- function(x, n) {
   log(U / n) + (n / U) *
     (
       sum(x_trunc / n * (digamma(n)-digamma(x_trunc))) +
-      f1 / n * (1 - A) ^ (1 - n) * (-log(A) - temp_sum)
+        f1 / n * (1 - A) ^ (1 - n) * (-log(A) - temp_sum)
     )
 }
 
@@ -68,9 +68,9 @@ get_q1_int <- function(m, x, n, U) {
   vec <- 1:max(x) %>%
     purrr::map_dbl(
       ~ (
-          (1 / choose(n, m)) * sum(choose(x[x >= .], .) *
-          choose(n - x[x >= .], (m - .))) * . / -U_hat * log(. / U_hat)
-        )
+        (1 / choose(n, m)) * sum(choose(x[x >= .], .) *
+                                   choose(n - x[x >= .], (m - .))) * . / -U_hat * log(. / U_hat)
+      )
     )
   exp(sum(vec))
 }

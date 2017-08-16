@@ -10,7 +10,8 @@ get_diversity_estimates <- function(x, data_type = "abundance") {
       boot = purrr::pmap(list(rel_abun, n, data_type), get_boot),
       cov = purrr::map2(freq, n, get_cov),
       cov_err = purrr::map2(boot, n, get_cov_err),
-      div = purrr::map2(freq, n, get_div)
+      div = purrr::map2(freq, n, get_div),
+      div_err = purrr::map2(boot, n, get_div_err)
     )
   #    dplyr::mutate(div_ests = purrr::map_df(summary_list, get_div_ests))
 }

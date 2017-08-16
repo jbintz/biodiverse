@@ -1,7 +1,7 @@
 get_div <- function(x, n) {
-  tibble::tibble(q = factor(0:2)) %>%
-    dplyr::group_by(q) %>%
+  tibble::tibble(q = 0:2) %>%
     mutate(
-      qD = purrr::pmap(list(x, n, q), get_qD)
-    )
+      qD = 0:2 %>% purrr::map(get_qD, x, n)
+    ) %>%
+    tidyr::unnest()
 }
