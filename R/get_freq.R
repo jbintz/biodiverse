@@ -1,4 +1,4 @@
-get_freq_vec <- function(df, data_type) {
+get_freq <- function(df, data_type) {
   if (data_type == "incidence") {
     df <- df %>% dplyr::mutate_all(dplyr::funs(. > 0))
   }

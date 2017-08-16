@@ -1,4 +1,4 @@
-get_boot_df <- function(x, n, data_type) {
+get_boot <- function(x, n, data_type) {
   if (data_type == "abundance") {
     rmultinom(200, n, x) %>%
       tibble::as_tibble()
