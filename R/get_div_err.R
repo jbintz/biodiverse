@@ -3,5 +3,6 @@ get_div_err <- function(df, n) {
     mutate(
       qD_err = 0:2 %>% purrr::map(get_qD_err, df, n)
     ) %>%
-    tidyr::unnest()
+    tidyr::unnest() %>%
+    dplyr::select(qD_err)
 }
