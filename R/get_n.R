@@ -1,7 +1,7 @@
-get_n <- function(a, b, c) {
-  if (b == "incidence") {
-    ncol(a)
+get_n <- function(df, data_type, x) {
+  if (data_type == "incidence") {
+    ncol(df)
   } else {
-    sum(c)
+    sum(x)
   }
 }

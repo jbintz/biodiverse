@@ -1,4 +1,5 @@
 get_qD <- function(q, x, n) {
+  x <- x[x > 0]
   size <- floor(seq(1, n, length.out = min(n, 20)))
   if (q == 0) qD <- get_richness(x, n, size)
   if (q == 1) qD <- get_shannon(x, n, size)
@@ -7,6 +8,7 @@ get_qD <- function(q, x, n) {
 }
 
 get_richness <- function(x, n, y) {
+  x <- x[x > 0]
   f0 <- get_f0(x, n)
   f1 <- length(x[x == 1])
   S_obs <- length(x)
@@ -18,6 +20,7 @@ get_richness <- function(x, n, y) {
 }
 
 get_shannon <- function(x, n, y) {
+  x <- x[x > 0]
   U <- sum(x)
   H_inf <- get_H_inf(x, n)
   q1_int <- y %>%
@@ -30,6 +33,7 @@ get_shannon <- function(x, n, y) {
 }
 
 get_simpson <- function(x, n, y) {
+  x <- x[x > 0]
   U <- sum(x)
   q2_int <- y %>%
     purrr::map_dbl(
@@ -64,7 +68,7 @@ get_H_inf <- function(x, n) {
 }
 
 get_q1_int <- function(m, x, n, U) {
-  U_hat <- m * U / n  # this value equals .m for abundance data
+  U_hat <- m * U / n  # this value equals m for abundance data
   vec <- 1:max(x) %>%
     purrr::map_dbl(
       ~ (
