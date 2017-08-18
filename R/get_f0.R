@@ -1,10 +1,10 @@
-get_f0 <- function(x, n) {
+get_f0 <- function(x, t) {
   x <- x[x > 0]
   f1 <- length(x[x == 1])
   f2 <- length(x[x == 2])
   if (f2 > 0) {
-    ((n - 1) / n) * (f1 ^ 2 / (2 * f2))
+    ((t - 1) / t) * (f1 ^ 2 / (2 * f2))
   } else {
-    ((n - 1) / n) * f1 * (f1 - 1) / 2
+    ((t - 1) / t) * f1 * (f1 - 1) / 2
   }
 }
