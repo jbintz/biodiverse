@@ -9,5 +9,5 @@ get_cov <- function(x, u, t) {
     purrr::map_dbl(
       ~ 1 - f1 / u * ((t - 1) * f1 / ((t - 1) * f1 + 2 * f2)) ^ (. + 1)
     )
-  c(C_int, C_ext)
+  tibble::tibble(cov = 0:2 %>% purrr::map(~(c(C_int, C_ext))))
 }
